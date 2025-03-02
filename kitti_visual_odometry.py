@@ -1,7 +1,6 @@
 import os
 import numpy as np
 import cv2
-import random
 from matplotlib import pyplot as plt 
 
 from lib.visualization import plotting
@@ -255,7 +254,7 @@ class VisualOdometry():
 
 
 def main():
-    data_dir = 'KITTI_sequence_2'  # Try KITTI_sequence_2 too
+    data_dir = 'KITTI_sequence_1'  # Try KITTI_sequence_1
     vo = VisualOdometry(data_dir)
 
 
