@@ -139,20 +139,7 @@ class VisualOdometry():
         img3 = cv2.drawMatches(self.images[i], keypoints1, self. images[i-1],keypoints2, good ,None,**draw_params)
         cv2.imshow("image", img3)
         cv2.waitKey(750)
-        # plt.imshow(img3, 'gray'),plt.show()
-        # plt.imshow(self.images[i]),plt.show()
-        # plt.imshow(self.images[i-1]),plt.show()
         return q1, q2
-
-
-
-
-        # This function should detect and compute keypoints and descriptors from the i-1'th and i'th image using the class orb object
-        # The descriptors should then be matched using the class flann object (knnMatch with k=2)
-        # Remove the matches not satisfying Lowe's ratio test
-        # Return a list of the good matches for each image, sorted such that the n'th descriptor in image i matches the n'th descriptor in image i-1
-        # https://docs.opencv.org/master/d1/de0/tutorial_py_feature_homography.html
-        pass
 
     def get_pose(self, q1, q2):
         """
@@ -174,11 +161,6 @@ class VisualOdometry():
         R, t = self.decomp_essential_mat(Essential, q1, q2)
 
         return self._form_transf(R,t)
-
-        # Estimate the Essential matrix using built in OpenCV function
-        # Use decomp_essential_mat to decompose the Essential matrix into R and t
-        # Use the provided function to convert R and t to a transformation matrix T
-        pass
 
     def decomp_essential_mat(self, E, q1, q2):
         """
@@ -254,11 +236,11 @@ class VisualOdometry():
 
 
 def main():
-    data_dir = 'KITTI_sequence_1'  # Try KITTI_sequence_1
+    data_dir = 'KITTI_sequence_1'
     vo = VisualOdometry(data_dir)
 
 
-    play_trip(vo.images)  # Comment out to not play the trip
+    play_trip(vo.images) 
 
     gt_path = []
     estimated_path = []
