@@ -193,10 +193,6 @@ class VisualOdometry():
 
         np.set_printoptions(suppress=True)
 
-        # print ("\nTransform 1\n" +  str(T1))
-        # print ("\nTransform 2\n" +  str(T2))
-        # print ("\nTransform 3\n" +  str(T3))
-        # print ("\nTransform 4\n" +  str(T4))
 
         positives = []
         for P, T in zip(projections, transformations):
